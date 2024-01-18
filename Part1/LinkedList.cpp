@@ -7,11 +7,14 @@ using namespace std;
 	Deletes every node that it has.
 */
 template <typename T> LinkedList<T>::~LinkedList() {
-	Node<T>* cNode = head, *nNode = NULL;
-	while (cNode) {
-		nNode = cNode->next;
-		delete cNode;
-		cNode = nNode;
+	length = 0;
+	Node<T>* currNode = head, * nextNode = NULL;
+	while (currNode != NULL)
+	{
+		nextNode = currNode->next;
+		// destroy the current node
+		delete currNode;
+		currNode = nextNode;
 	}
 }
 
@@ -40,6 +43,7 @@ template <typename T> Node<T>* LinkedList<T>::insertNode(int index, T x) {
 		newNode->next = cNode->next;
 		cNode->next = newNode;
 	}
+	length++;
 
 	return newNode;
 }
@@ -50,13 +54,13 @@ template <typename T> Node<T>* LinkedList<T>::insertNode(int index, T x) {
 */
 template <typename T> int LinkedList<T>::findNode(T x) {
 	Node<T> *cNode = head;
-	int cIndex = 1;
+	int cIndex = 0;
 	while (cNode && cNode->value != x) {
 		cNode = cNode->next;
 		cIndex++;
 	}
 	if (cNode) return cIndex;
-	return 0;
+	return -1;
 }
 
 /*
@@ -66,18 +70,29 @@ template <typename T> int LinkedList<T>::findNode(T x) {
 template <typename T> int LinkedList<T>::deleteNode(T x) {
 	Node<T>* pNode = NULL;
 	Node<T>* cNode = head;
-	int cIndex = 1;
+	int cIndex = 0;
 	while (cNode && cNode->value != x) {
 		pNode = cNode;
 		cNode = cNode->next;
 		cIndex++;
 	}
-	if (!cNode) return 0;
+	if (!cNode) return -1;
 	Node<T>* nNode = (pNode ? pNode : head);
 	nNode->next = cNode->next;
 	delete cNode;
-
+	length--;
 	return cIndex;
+}
+
+template <typename T> Node<T>* LinkedList<T>::findKth(int index) {
+	Node<T>* current = head;
+	int count = 0;
+	while (current && count < index) {
+		current = current->next;
+		count++;
+	}
+	if (!current) return NULL;
+	return current;
 }
 
 
@@ -87,10 +102,18 @@ template <typename T> int LinkedList<T>::deleteNode(T x) {
 template <typename T> void LinkedList<T>::displayList() {
 	int num = 0;
 	Node<T>* cNode = head;
-	while (cNode) {
+	while (cNode && num < length) {
 		cout << cNode->value << endl;
 		cNode = cNode->next;
 		num++;
 	}
 	cout << "Number of nodes in the list " << num << endl;
+}
+
+/*
+	ADD TO LAST
+*/
+
+template <typename T> Node<T>* LinkedList<T>::addNode(T x) {
+	return insertNode(0, x);
 }

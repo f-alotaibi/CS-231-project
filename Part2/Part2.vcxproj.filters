@@ -13,41 +13,44 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\LinkedList">
-      <UniqueIdentifier>{f3077b1e-5934-41ca-9df4-960543d26746}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Part1.cpp">
+    <ClCompile Include="Part2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="LinkedList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Stack.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="LinkedList.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Customer.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Identifiable.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Person.h">
+    <ClInclude Include="Branch.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Callable.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="Customer.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
     <ClInclude Include="Drug.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Identifiable.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LinkedList.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Person.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Pharamcist.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="Branch.h">
+    <ClInclude Include="Stack.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
